@@ -14,7 +14,6 @@ body {
     color: #3d211a;
     min-height: 100vh;
 }
-
 .header {
     width: 100%;
     display: flex;
@@ -33,7 +32,7 @@ body {
 
 .logo-nav img {
     width: 150px;
-    height: auto;
+    height: 150px;
     display: block;
 }
 
@@ -93,8 +92,6 @@ body {
 
     background-color: #9b806c;
 }
-
-
 
 
 .hero {
@@ -519,10 +516,12 @@ body {
     color: #66534b;
 }
 
+/* CAROUSEL DESKTOP STILOVI */
 .products-carousel {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
+    transition: transform 0.4s ease-in-out;
 }
 
 .product-card {
@@ -620,6 +619,7 @@ body {
     transform: translateX(3px);
 }
 
+/* KONTROLE CAROUSELA */
 .carousel-controls {
     display: flex;
     align-items: center;
@@ -665,6 +665,7 @@ body {
     display: block;
     border-radius: 50%;
     background-color: #cbb799;
+    cursor: pointer;
     transition:
         transform 0.3s ease,
         background-color 0.3s ease;
@@ -1059,8 +1060,7 @@ body {
     }
 
     .products-section {
-        width: 88%;
-        padding: 85px 0 95px;
+        overflow: hidden;
     }
 
     .products-header {
@@ -1068,7 +1068,14 @@ body {
     }
 
     .products-carousel {
-        gap: 18px;
+        display: flex;
+        gap: 0;
+        width: 100%;
+    }
+    .product-card{
+        min-width: 100%;
+        flex: 0 0 100%;
+        box-sizing: border-box;
     }
 
     .product-image {
@@ -1774,5 +1781,352 @@ body {
     .footer-decoration img {
         width: 45px;
         height: 45px;
+    }
+}
+/* ==========================================
+   SEKCIJA SA MREŽOM PROIZVODA (PONUDA)
+   ========================================== */
+
+.products-page {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 60px 0 100px;
+    color: #3d211a;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kartice na kompjuteru */
+    gap: 30px;
+}
+
+/* BRAON KARTICA PROIZVODA */
+.product-card {
+    overflow: hidden;
+    background-color: #3d211a; /* Tamno braon pozadina kartice */
+    border: 1px solid rgba(203, 183, 153, 0.2);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(61, 33, 26, 0.35);
+    border-color: rgba(203, 183, 153, 0.5);
+}
+
+.product-image {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.06);
+}
+
+.product-info {
+    padding: 30px 25px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+/* KREM TEKST NASLOVA */
+.product-info h3 {
+    margin: 0 0 20px;
+    font-size: 21px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #f4eee4; /* Krem boja */
+    letter-spacing: 0.5px;
+}
+
+/* DUGME "SAZNAJTE VIŠE" NA BRAON KARTICI */
+.open-modal-btn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #cbb799;
+    padding: 0 0 6px 0;
+    color: #cbb799; /* Krem/zlatni ton */
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: gap 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.open-modal-btn span {
+    font-size: 16px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.open-modal-btn:hover {
+    gap: 18px;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.open-modal-btn:hover span {
+    transform: translateX(4px);
+}
+
+
+/* ==========================================
+   MODERAN POP-UP MODAL PROZOR
+   ========================================== */
+
+.product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.product-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* POZADINA SAKRIVANJA S FINIM BLUROM */
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(25, 12, 8, 0.75);
+    backdrop-filter: blur(8px);
+}
+
+/* PROZOR MODALA (ELEGANTNA BRAON KUTIJA) */
+.modal-content {
+    position: relative;
+    background-color: #3d211a; /* Braon pozadina modala */
+    border: 1px solid rgba(203, 183, 153, 0.3);
+    border-radius: 8px;
+    width: min(800px, 92%);
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    transform: translateY(30px) scale(0.96);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-modal.active .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+/* DUGME ZA ZATVARANJE (X) */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(61, 33, 26, 0.6);
+    border: 1px solid rgba(203, 183, 153, 0.3);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    line-height: 1;
+    color: #cbb799;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-close:hover {
+    background-color: #cbb799;
+    color: #3d211a;
+    transform: rotate(90deg);
+}
+
+/* UNUTRAŠNJOST MODALA */
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 0;
+}
+
+.modal-image {
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    background-color: #2b1712;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.modal-details {
+    padding: 45px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-details h2 {
+    margin: 0 0 15px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #f4eee4; /* Krem naslov */
+    line-height: 1.2;
+}
+
+.modal-details p {
+    margin: 0 0 35px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #cbb799; /* Krem-zlatni opis */
+}
+
+/* ELEGANTNA DUGMAD U MODALU */
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.modal-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* POZOVITE DUGME (KREM POZADINA / BRAON TEKST) */
+.btn-call {
+    background-color: #cbb799;
+    color: #3d211a !important;
+    border: 1px solid #cbb799;
+    box-shadow: 0 4px 15px rgba(203, 183, 153, 0.2);
+}
+
+.btn-call:hover {
+    background-color: #f4eee4;
+    border-color: #f4eee4;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(244, 238, 228, 0.3);
+}
+
+/* WHATSAPP DUGME (ZELENO SA SUPTILNIM EFEKTOM) */
+.btn-whatsapp {
+    background-color: #25d366;
+    color: #ffffff !important;
+    border: 1px solid #25d366;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebc57;
+    border-color: #1ebc57;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+
+/* ==========================================
+   RESPONSIVE: TELEFONI (ISPOD 768px)
+   ========================================== */
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kartice u redu na telefonu */
+        gap: 15px;
+    }
+
+    .product-image {
+        height: 180px;
+    }
+
+    .product-info {
+        padding: 20px 15px 22px;
+    }
+
+    .product-info h3 {
+        font-size: 16px;
+        margin-bottom: 14px;
+    }
+
+    .open-modal-btn {
+        font-size: 10px;
+        letter-spacing: 1.2px;
+    }
+
+    /* PRILAGOĐAVANJE MODALA NA TELEFONU */
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-image {
+        height: 200px;
+        min-height: auto;
+    }
+
+    .modal-details {
+        padding: 30px 20px;
+    }
+
+    .modal-details h2 {
+        font-size: 22px;
+    }
+
+    .modal-details p {
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+
+    .modal-actions a {
+        padding: 14px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        gap: 10px;
+    }
+
+    .product-info {
+        padding: 14px 12px 18px;
     }
 }
