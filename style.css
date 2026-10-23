@@ -1889,20 +1889,22 @@ body {
 }
 
 
+
 /* ==========================================
    MODERAN POP-UP MODAL PROZOR
    ========================================== */
 
 .product-modal {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.35s ease, visibility 0.35s ease;
@@ -1913,27 +1915,26 @@ body {
     visibility: visible;
 }
 
-/* POZADINA SAKRIVANJA S FINIM BLUROM */
+/* ZATAMNJENA POZADINA */
 .modal-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(25, 12, 8, 0.75);
+    inset: 0;
+    background-color: rgba(25, 12, 8, 0.78);
     backdrop-filter: blur(8px);
 }
 
-/* PROZOR MODALA (ELEGANTNA BRAON KUTIJA) */
-.modal-content {
+/* GLAVNI PROZOR */
+.product-modal .modal-content {
     position: relative;
-    background-color: #3d211a; /* Braon pozadina modala */
+    z-index: 1;
+    width: min(1100px, 100%);
+    max-height: 90vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    background-color: #3d211a;
     border: 1px solid rgba(203, 183, 153, 0.3);
     border-radius: 8px;
-    width: min(800px, 92%);
-    max-height: 90vh;
-    overflow-y: auto;
-    z-index: 1;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
     transform: translateY(30px) scale(0.96);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1943,13 +1944,14 @@ body {
     transform: translateY(0) scale(1);
 }
 
-/* DUGME ZA ZATVARANJE (X) */
-.modal-close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: rgba(61, 33, 26, 0.6);
-    border: 1px solid rgba(203, 183, 153, 0.3);
+/* DUGME ZA ZATVARANJE */
+.product-modal .modal-close {
+    position: sticky;
+    float: right;
+    top: 12px;
+    margin: 12px 12px -48px 0;
+    background: #3d211a;
+    border: 1px solid rgba(203, 183, 153, 0.5);
     border-radius: 50%;
     width: 36px;
     height: 36px;
@@ -1960,71 +1962,221 @@ body {
     line-height: 1;
     color: #cbb799;
     cursor: pointer;
-    z-index: 2;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    z-index: 5;
+    transition: background-color 0.3s ease, color 0.3s ease,
+                transform 0.3s ease;
 }
 
-.modal-close:hover {
+.product-modal .modal-close:hover {
     background-color: #cbb799;
     color: #3d211a;
     transform: rotate(90deg);
 }
 
-/* UNUTRAŠNJOST MODALA */
-.modal-body {
+/* RASPORED SLIKE I TEKSTA */
+.product-modal .modal-body {
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 0;
+    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.5fr);
+    gap: 28px;
+    padding: 30px;
+    align-items: start;
+    box-sizing: border-box;
 }
 
-.modal-image {
+/* SLIKA PROIZVODA */
+.product-modal .modal-image {
     width: 100%;
-    height: 100%;
-    min-height: 360px;
+    min-width: 0;
+    min-height: 300px;
     background-color: #2b1712;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.modal-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.product-modal .modal-image img {
     display: block;
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+    object-position: center;
 }
 
-.modal-details {
-    padding: 45px 35px;
+/* DETALJI PROIZVODA */
+.product-modal .modal-details {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
 }
 
-.modal-details h2 {
-    margin: 0 0 15px;
+.product-modal .modal-details h2 {
+    margin: 0 0 18px;
+    padding-right: 25px;
     font-size: 28px;
     font-weight: 600;
-    color: #f4eee4; /* Krem naslov */
-    line-height: 1.2;
+    color: #f4eee4;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
 }
 
-.modal-details p {
-    margin: 0 0 35px;
+.product-modal .modal-details p {
+    margin: 0 0 16px;
     font-size: 14px;
     line-height: 1.8;
-    color: #cbb799; /* Krem-zlatni opis */
+    color: #cbb799;
 }
 
-/* ELEGANTNA DUGMAD U MODALU */
-.modal-actions {
+/* OPIS PROIZVODA */
+.product-modal .product-intro {
+    margin-bottom: 24px;
+}
+
+/* SEKCIJE KARAKTERISTIKA I SPECIFIKACIJA */
+.product-modal .product-section {
+    width: 100%;
+    min-width: 0;
+    margin: 24px 0;
+}
+
+.product-modal .product-section > h3 {
+    margin: 0 0 14px;
+    color: #f4eee4;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+/* PREDNOSTI I KARAKTERISTIKE */
+.product-modal .product-features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.product-modal .product-feature {
+    padding: 14px;
+    background-color: rgba(203, 183, 153, 0.08);
+    border: 1px solid rgba(203, 183, 153, 0.2);
+    border-radius: 5px;
+    min-width: 0;
+}
+
+.product-modal .product-feature h4 {
+    margin: 0 0 8px;
+    color: #f4eee4;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.product-modal .product-feature p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+/* OMOTAČ TEHNIČKE TABELE */
+.product-modal .spec-table-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 0 0 24px;
+    border: 1px solid rgba(203, 183, 153, 0.3);
+    border-radius: 5px;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* TEHNIČKA TABELA */
+.product-modal .spec-table {
+    display: table;
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+    table-layout: auto;
+    background-color: #f4eee4;
+    color: #3d211a;
+    font-size: 13px;
+}
+
+/* ZAGLAVLJE TABELE */
+.product-modal .spec-table thead {
+    display: table-header-group;
+}
+
+.product-modal .spec-table thead tr {
+    display: table-row;
+}
+
+.product-modal .spec-table th {
+    padding: 13px 12px;
+    background-color: #cbb799;
+    color: #3d211a;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+    border: 1px solid #b7a184;
+}
+
+/* SADRŽAJ TABELE */
+.product-modal .spec-table tbody {
+    display: table-row-group;
+}
+
+.product-modal .spec-table tbody tr {
+    display: table-row;
+}
+
+.product-modal .spec-table td {
+    display: table-cell;
+    padding: 11px 12px;
+    border: 1px solid #ded3c3;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.product-modal .spec-table tbody tr:nth-child(even) {
+    background-color: #e9dfd1;
+}
+
+.product-modal .spec-table tbody tr:hover {
+    background-color: #dfd0bc;
+}
+
+/* NAPOMENA ISPOD SPECIFIKACIJA */
+.product-modal .product-note {
+    margin: 18px 0;
+    padding: 14px;
+    border-left: 3px solid #cbb799;
+    background-color: rgba(203, 183, 153, 0.08);
+    color: #cbb799;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* DUGMAD ZA KONTAKT */
+.product-modal .modal-actions {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
+    margin-top: 24px;
 }
 
-.modal-actions a {
+.product-modal .modal-actions a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 16px 24px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 20px;
     border-radius: 4px;
     text-decoration: none;
     font-size: 11px;
@@ -2034,99 +2186,635 @@ body {
     transition: all 0.3s ease;
 }
 
-/* POZOVITE DUGME (KREM POZADINA / BRAON TEKST) */
-.btn-call {
+/* POZOVITE */
+.product-modal .btn-call {
     background-color: #cbb799;
     color: #3d211a !important;
     border: 1px solid #cbb799;
     box-shadow: 0 4px 15px rgba(203, 183, 153, 0.2);
 }
 
-.btn-call:hover {
+.product-modal .btn-call:hover {
     background-color: #f4eee4;
     border-color: #f4eee4;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(244, 238, 228, 0.3);
 }
 
-/* WHATSAPP DUGME (ZELENO SA SUPTILNIM EFEKTOM) */
-.btn-whatsapp {
+/* WHATSAPP */
+.product-modal .btn-whatsapp {
     background-color: #25d366;
-    color: #ffffff !important;
+    color: #fff !important;
     border: 1px solid #25d366;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
 }
 
-.btn-whatsapp:hover {
+.product-modal .btn-whatsapp:hover {
     background-color: #1ebc57;
     border-color: #1ebc57;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }
 
-
 /* ==========================================
-   RESPONSIVE: TELEFONI (ISPOD 768px)
+   RESPONSIVE - TABLETI I TELEFONI
    ========================================== */
 
 @media (max-width: 768px) {
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 kartice u redu na telefonu */
-        gap: 15px;
+    .product-modal {
+        padding: 12px;
     }
 
-    .product-image {
-        height: 180px;
+    .product-modal .modal-content {
+        width: 100%;
+        max-height: 94vh;
     }
 
-    .product-info {
-        padding: 20px 15px 22px;
+    .product-modal .modal-body {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        padding: 20px;
     }
 
-    .product-info h3 {
-        font-size: 16px;
-        margin-bottom: 14px;
+    .product-modal .modal-image {
+        min-height: 0;
+        height: auto;
+        padding: 10px;
+        box-sizing: border-box;
     }
 
-    .open-modal-btn {
-        font-size: 10px;
-        letter-spacing: 1.2px;
+    .product-modal .modal-image img {
+        width: 100%;
+        max-width: 300px;
+        max-height: 250px;
+        object-fit: contain;
+        margin: 0 auto;
     }
 
-    /* PRILAGOĐAVANJE MODALA NA TELEFONU */
-    .modal-body {
-        grid-template-columns: 1fr;
+    .product-modal .modal-details {
+        padding: 8px 0;
     }
 
-    .modal-image {
-        height: 200px;
-        min-height: auto;
+    .product-modal .modal-details h2 {
+        font-size: 23px;
     }
 
-    .modal-details {
-        padding: 30px 20px;
-    }
-
-    .modal-details h2 {
-        font-size: 22px;
-    }
-
-    .modal-details p {
+    .product-modal .modal-details p {
         font-size: 13px;
-        margin-bottom: 25px;
     }
 
-    .modal-actions a {
-        padding: 14px 18px;
+    .product-modal .product-features {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .product-modal .spec-table {
+        min-width: 750px;
+        font-size: 12px;
+    }
+
+    .product-modal .spec-table th,
+    .product-modal .spec-table td {
+        padding: 9px 10px;
     }
 }
 
 @media (max-width: 480px) {
-    .products-grid {
-        gap: 10px;
+    .product-modal {
+        padding: 8px;
     }
 
-    .product-info {
-        padding: 14px 12px 18px;
+    .product-modal .modal-body {
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .product-modal .modal-image img {
+        max-width: 240px;
+        max-height: 210px;
+    }
+
+    .product-modal .modal-details h2 {
+        font-size: 21px;
+    }
+
+    .product-modal .product-section > h3 {
+        font-size: 16px;
+    }
+
+    .product-modal .modal-actions a {
+        padding: 14px 16px;
+        letter-spacing: 1.5px;
     }
 }
+
+/* ==========================================
+   KARTICE PROIZVODA - SLIKE I GRID
+   ========================================== */
+
+/* GRID KARTICA */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+/* PROSTOR ZA SLIKU NA KARTICI */
+.products-grid .product-card .product-image {
+    width: 100%;
+    height: 260px;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* CELA SLIKA MAŠINE */
+.products-grid .product-card .product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* TABLETI */
+@media (max-width: 900px) {
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .products-grid .product-card .product-image {
+        height: 220px;
+    }
+}
+
+/* TELEFONI - DVE KARTICE U REDU */
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .products-grid .product-card .product-image {
+        height: 160px;
+        padding: 8px;
+    }
+
+    .products-grid .product-card .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .products-grid .product-card .product-info {
+        padding: 14px 10px 16px;
+    }
+
+    .products-grid .product-card .product-info h3 {
+        font-size: 14px;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+    }
+
+    .products-grid .product-card .open-modal-btn {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+        padding: 10px 6px;
+    }
+}
+
+/* UŽI TELEFONI */
+@media (max-width: 380px) {
+    .products-grid {
+        gap: 8px;
+    }
+
+    .products-grid .product-card .product-image {
+        height: 135px;
+        padding: 5px;
+    }
+
+    .products-grid .product-card .product-info {
+        padding: 12px 8px;
+    }
+
+    .products-grid .product-card .product-info h3 {
+        font-size: 12px;
+    }
+}
+
+/* =========================
+   KONTAKT STRANICA
+========================= */
+
+.contact-page {
+    background: #F3EBDD;
+    color: #3A2A22;
+}
+
+.contact-hero {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    min-height: 520px;
+    background: #3A2A22;
+    color: #F3EBDD;
+}
+
+.contact-hero-content {
+    align-self: center;
+    padding: 75px 9%;
+}
+
+.contact-eyebrow {
+    margin-bottom: 16px;
+    color: #A98B69;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.contact-hero h1 {
+    margin-bottom: 25px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(37px, 4.5vw, 61px);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.contact-hero h1 span {
+    color: #CBB799;
+    font-style: italic;
+}
+
+.contact-intro {
+    max-width: 540px;
+    margin-bottom: 30px;
+    color: #E0D5C7;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.contact-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.contact-btn {
+    min-height: 49px;
+    padding: 14px 19px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px solid transparent;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: 0.25s ease;
+}
+
+.contact-btn-primary {
+    background: #F3EBDD;
+    color: #3A2A22;
+}
+
+.contact-btn-primary:hover {
+    background: #CBB799;
+}
+
+.contact-btn-outline {
+    border-color: #CBB799;
+    color: #F3EBDD;
+}
+
+.contact-btn-outline:hover {
+    background: #CBB799;
+    color: #3A2A22;
+}
+
+.contact-btn span {
+    font-size: 17px;
+}
+
+/* Dekorativni deo hero sekcije */
+
+.contact-hero-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 55px;
+    background:
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(203, 183, 153, 0.16),
+            transparent 48%
+        ),
+        #30221C;
+}
+
+.decoration-inner {
+    width: 100%;
+    max-width: 390px;
+    min-height: 330px;
+    padding: 45px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(203, 183, 153, 0.55);
+    text-align: center;
+}
+
+.decoration-line {
+    width: 55px;
+    height: 1px;
+    margin-bottom: 25px;
+    background: #CBB799;
+}
+
+.decoration-inner > p {
+    margin-bottom: 20px;
+    color: #CBB799;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.decoration-inner h2 {
+    margin-bottom: 28px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 3vw, 39px);
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.decoration-bottom {
+    color: #CBB799;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* Kontakt informacije */
+
+.contact-details-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 85px 6%;
+}
+
+.contact-section-heading {
+    margin-bottom: 42px;
+    text-align: center;
+}
+
+.contact-section-heading h2 {
+    margin-bottom: 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(29px, 3vw, 41px);
+    font-weight: 400;
+}
+
+.contact-section-heading > p:last-child {
+    color: #766960;
+    font-size: 14px;
+}
+
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.contact-card {
+    min-width: 0;
+    padding: 32px 27px;
+    background: #FFFCF7;
+    border: 1px solid #E4D8C8;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(58, 42, 34, 0.08);
+}
+
+.contact-card-icon {
+    width: 43px;
+    height: 43px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #CBB799;
+    color: #3A2A22;
+    font-size: 22px;
+}
+
+.contact-card-label {
+    margin-bottom: 9px;
+    color: #92745B;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.contact-card h3 {
+    margin-bottom: 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.contact-card > p:not(.contact-card-label) {
+    min-height: 72px;
+    margin-bottom: 20px;
+    color: #766960;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.contact-card-link {
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #CBB799;
+    color: #3A2A22;
+    font-size: 13px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* Servis banner */
+
+.service-contact-banner {
+    margin: 0 6% 85px;
+    padding: 45px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    background: #3A2A22;
+    color: #F3EBDD;
+}
+
+.service-contact-banner > div {
+    max-width: 650px;
+}
+
+.service-contact-banner h2 {
+    margin-bottom: 15px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(27px, 3vw, 39px);
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+.service-contact-banner > div > p:last-child {
+    color: #E0D5C7;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.contact-btn-light {
+    flex-shrink: 0;
+    background: #F3EBDD;
+    color: #3A2A22;
+}
+
+.contact-btn-light:hover {
+    background: #CBB799;
+}
+
+/* Footer */
+
+.site-footer {
+    padding: 28px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #30221C;
+    color: #F3EBDD;
+    font-size: 12px;
+}
+
+.site-footer a {
+    color: #CBB799;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .contact-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-hero-content {
+        padding: 65px 7%;
+    }
+
+    .contact-hero-decoration {
+        padding: 40px;
+    }
+
+    .decoration-inner {
+        min-height: 270px;
+    }
+
+    .contact-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card > p:not(.contact-card-label) {
+        min-height: 0;
+    }
+
+    .service-contact-banner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* Mobilni uređaji */
+
+@media (max-width: 600px) {
+    .site-header {
+        padding: 15px 5%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .logo img {
+        width: 80px;
+    }
+
+    .main-nav {
+        width: 100%;
+        justify-content: center;
+        gap: 23px;
+    }
+
+    .main-nav a {
+        font-size: 12px;
+    }
+
+    .contact-hero-content {
+        padding: 55px 6%;
+    }
+
+    .contact-hero h1 {
+        font-size: 39px;
+    }
+
+    .contact-intro {
+        font-size: 14px;
+    }
+
+    .contact-hero-buttons {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .contact-btn {
+        width: 100%;
+    }
+
+    .contact-hero-decoration {
+        padding: 30px 6%;
+    }
+
+    .decoration-inner {
+        min-height: 250px;
+        padding: 30px 20px;
+    }
+
+    .contact-details-section {
+        padding: 60px 6%;
+    }
+
+    .contact-section-heading {
+        margin-bottom: 30px;
+    }
+
+    .contact-card {
+        padding: 27px 23px;
+    }
+
+    .service-contact-banner {
+        margin: 0 5% 55px;
+        padding: 32px 24px;
+    }
+
+    .site-footer {
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+

@@ -15,7 +15,7 @@
   </div>
 
   <div class="nav-bar">
-  <li><a href="pocetna.html">POČETNA</a></li>
+  <li><a href="index.html">POČETNA</a></li>
   <li><a href="ponuda.html"  class="active">PONUDA</a></li>
   <li><a href="kontakt.html">KONTAKT</a></li>
   </div>
@@ -27,66 +27,127 @@
     <main class="products-page">
     <section class="products-grid-section">
         
-        <!-- GRID SA KARTICAMA -->
-        <div class="products-grid">
+     
 
-            <!-- KARTICA 1 -->
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="img/slika_54.JPG" alt="Mašine za sladoled">
-                </div>
-                <div class="product-info">
-                    <h3>Mašine za sladoled</h3>
-                    <button 
-                        class="open-modal-btn"
-                        data-title="Mašine za sladoled"
-                        data-image="img/slika_54.JPG"
-                        data-desc="Profesionalne mašine za kvalitetnu i efikasnu proizvodnju sladoleda namenjene ugostiteljima i poslastičarnicama."
-                    >
-                        SAZNAJTE VIŠE <span>→</span>
-                    </button>
-                </div>
-            </article>
+<div class="products-grid">
 
-            <!-- KARTICA 2 -->
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="img/DUO PANEL.JPG" alt="Valtek DUO">
-                </div>
-                <div class="product-info">
-                    <h3>Valtek DUO</h3>
-                    <button 
-                        class="open-modal-btn"
-                        data-title="Valtek DUO"
-                        data-image="img/DUO PANEL.JPG"
-                        data-desc="Valtek DUO kombinuje cilindar za zagrevanje i mašinu za izradu sladoleda u jednom aparatu. Pouzdana oprema prilagođena potrebama preduzetnika."
-                    >
-                        SAZNAJTE VIŠE <span>→</span>
-                    </button>
-                </div>
-            </article>
+    <article class="product-card">
+    <div class="product-image">
+        <img src="img/logo.png" alt="Servis mašina za sladoled">
+    </div>
 
-            <!-- KARTICA 3 -->
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="img/SMART MASTER_24.jpg" alt="Valtek SMART MASTER">
-                </div>
-                <div class="product-info">
-                    <h3>Valtek SMART MASTER</h3>
-                    <button 
-                        class="open-modal-btn"
-                        data-title="Valtek SMART MASTER"
-                        data-image="img/SMART MASTER_24.jpg"
-                        data-desc="Valtek SMART MASTER je inovativna računarski upravljana mašina za izradu sladoleda koja proizvodi sladoled prilagođen zahtevima korisnika."
-                    >
-                        SAZNAJTE VIŠE <span>→</span>
-                    </button>
-                </div>
-            </article>
+    <div class="product-info">
+        <h3>SERVIS I ODRŽAVANJE</h3>
+        <p>
+            Profesionalni servis, reparacija i održavanje mašina za sladoled
+            na teritoriji cele Srbije.
+        </p>
 
+        <button class="open-modal-btn" data-product="servis">
+            SAZNAJTE VIŠE <span>→</span>
+        </button>
+    </div>
+</article>
+
+    <!-- 1. VALTEK UNI -->
+    <article class="product-card">
+        <div class="product-image">
+            <img src="img/UNI.jpg" alt="VALTEK UNI mašina za sladoled">
         </div>
+        <div class="product-info">
+            <h3>VALTEK UNI</h3>
+            <p>Mašina za sladoled sa jednostavnim mehaničkim upravljanjem.</p>
+            <button class="open-modal-btn" data-product="valtek-uni">
+                SAZNAJTE VIŠE <span>→</span>
+            </button>
+        </div>
+    </article>
 
-    </section>
+    <!-- 2. VALTEK DIGI -->
+    <article class="product-card">
+        <div class="product-image">
+            <img src="img/DIGI.jpg" alt="VALTEK DIGI mašina za sladoled">
+        </div>
+        <div class="product-info">
+            <h3>VALTEK DIGI</h3>
+            <p>Digitalno upravljanje i precizna kontrola pripreme sladoleda.</p>
+            <button class="open-modal-btn" data-product="valtek-digi">
+                SAZNAJTE VIŠE <span>→</span>
+            </button>
+        </div>
+    </article>
+
+    <!-- 3. VALTEK SMART MASTER -->
+    <article class="product-card">
+        <div class="product-image">
+            <img src="img/SMART MASTER.jpg" alt="VALTEK SMART MASTER mašina za sladoled">
+        </div>
+        <div class="product-info">
+            <h3>VALTEK SMART MASTER</h3>
+            <p>Napredna tehnologija, prilagodljivi programi i pametna kontrola proizvodnje.</p>
+            <button class="open-modal-btn" data-product="valtek-smart-master">
+                SAZNAJTE VIŠE <span>→</span>
+            </button>
+        </div>
+    </article>
+
+    <!-- 4. VALTEK TS LCD -->
+    <article class="product-card">
+        <div class="product-image">
+            <img src="img/DSC_5781x.jpg" alt="VALTEK TS LCD mašina za sladoled">
+        </div>
+        <div class="product-info">
+            <h3>VALTEK TS LCD</h3>
+            <p>Precizna kontrola teksture i čvrstine za ujednačen kvalitet sladoleda.</p>
+            <button class="open-modal-btn" data-product="valtek-ts-lcd">
+                SAZNAJTE VIŠE <span>→</span>
+            </button>
+        </div>
+    </article>
+
+    <!-- 5. VALTEK PAST -->
+    <article class="product-card">
+        <div class="product-image">
+            <img src="img/PAST 130_37.JPG" alt="VALTEK PAST pasterizator">
+        </div>
+        <div class="product-info">
+            <h3>VALTEK PAST</h3>
+            <p>Pasterizator za pouzdanu termičku obradu smeše za sladoled.</p>
+            <button class="open-modal-btn" data-product="valtek-past">
+                SAZNAJTE VIŠE <span>→</span>
+            </button>
+        </div>
+    </article>
+
+    <!-- 6. VALTEK PASTOSMART -->
+    <article class="product-card">
+        <div class="product-image">
+            <img src="img/PAST 60_37.jpg" alt="VALTEK PASTOSMART multifunkcionalni pasterizator">
+        </div>
+        <div class="product-info">
+            <h3>VALTEK PASTOSMART</h3>
+            <p>Multifunkcionalni uređaj sa automatskom kontrolom procesa.</p>
+            <button class="open-modal-btn" data-product="valtek-pastosmart">
+                SAZNAJTE VIŠE <span>→</span>
+            </button>
+        </div>
+    </article>
+
+    <!-- 7. VALTEK DUO -->
+    <article class="product-card">
+        <div class="product-image">
+            <img src="img/DUO.jpg" alt="VALTEK DUO kombinovana mašina za sladoled">
+        </div>
+        <div class="product-info">
+            <h3>VALTEK DUO</h3>
+            <p>Dva procesa u jednom uređaju — praktično rešenje za manje proizvodne pogone.</p>
+            <button class="open-modal-btn" data-product="valtek-duo">
+                SAZNAJTE VIŠE <span>→</span>
+            </button>
+        </div>
+    </article>
+
+</div>
 
     <!-- MODAL POP-UP (Samo jedan se koristi za sve kartice) -->
     <div class="product-modal" id="productModal" aria-hidden="true">
@@ -100,7 +161,7 @@
                 </div>
                 <div class="modal-details">
                     <h2 id="modalTitle">Naziv proizvoda</h2>
-                    <p id="modalDescription">Opis proizvoda...</p>
+                    <div id="modalDescription">Opis proizvoda...</div>
                     
                     <div class="modal-actions">
                         <a href="tel:+381693520303" class="btn-call" id="modalCallBtn">
