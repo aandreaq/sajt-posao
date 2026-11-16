@@ -76,41 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const products = {
 
-       
-'servis': {
-    title: 'Servis mašina za sladoled',
-    image: 'img/logo.png',
-
-    description: 'Stručnost, iskustvo i pouzdanost. Bavimo se profesionalnim servisom, održavanjem i reparacijom mašina za proizvodnju i točenje sladoleda, pasterizatora i prateće rashladne opreme. Servis obavljamo na teritoriji cele Srbije.',
-
-    features: [
-        {
-            title: 'Servisiramo različite proizvođače',
-            text: 'Carpigiani • Frigomat • Bravo • Valtex • Valamar • i drugi proizvođači profesionalne opreme za sladoled.'
-        },
-        {
-            title: 'Izrada i reparacija delova',
-            text: 'U sopstvenoj radionici izrađujemo i repariramo mešalice i mešačke sklopove, noževe i strugače za cilindre, reduktore i zupčaste prenose, osovine, čaure i druge mehaničke komponente. Obavljamo obnovu postojećih sklopova i izradu delova prema uzorku ili tehničkim zahtevima.'
-        },
-        {
-            title: 'Rezervni delovi',
-            text: 'Za određene modele možemo obezbediti rezervne delove i komponente, uključujući opremu proizvođača Carpigiani, Frigomat, Bravo, Valtex i Valamar.'
-        },
-        {
-            title: 'Servis i održavanje',
-            text: 'Dijagnostika električnih i mehaničkih kvarova • Servis rashladnog sistema • Vakumiranje i punjenje rashladnog sistema • Kontrola kompresora, kondenzatora i isparivača • Servis elektromotora i reduktora • Kontrola i zamena sondi, senzora i elektronskih komponenti • Servis kontaktora, releja i upravljačke elektronike • Podešavanje radnih parametara • Preventivno održavanje i priprema mašina za sezonu • Intervencije na terenu.'
-        },
-        {
-            title: 'Reparacija poluhermetičkih kompresora',
-            text: 'Posebno radimo reparaciju poluhermetičkih kompresora. U zavisnosti od stanja kompresora vršimo pregled, dijagnostiku, rastavljanje, reparaciju i ponovnu kontrolu, sa ciljem da se oprema vrati u pouzdano radno stanje i produži njen radni vek.'
-        }
-    ],
-
-    tables: [],
-
-    note: 'SERVIS NA TERITORIJI CELE SRBIJE'
-},
-
 
 
 
@@ -154,13 +119,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Min. smeša (l)', 'Maks. sladoled (l)',
                         'Kapacitet (kg/h)', 'Kapacitet (l/h)'
                     ],
-                    rows: [
-                        ['UNI 12/75', '3', '12', '4,2', '16,8', '75', '102'],
-                        ['UNI 16/100', '4', '15', '5,6', '23,8', '100', '138'],
-                        ['UNI 19XL/120', '5', '19', '7', '26,6', '120', '168'],
-                        ['UNI 23XL/140', '6', '23', '8,4', '32,2', '140', '196'],
-                        ['UNI 27XL/150', '7', '27', '9,8', '37,8', '150', '210']
-                    ]
+                   rows: [
+                              ['UNI 6/35', '1,5', '6', '2,1', '9', '35', '54'],
+                              ['UNI 9/55', '2', '9', '2,8', '13,2', '55', '75'],
+                              ['UNI 12/75', '3', '12', '4,2', '16,8', '75', '102'],
+                              ['UNI 16/100', '4', '15', '5,6', '23,8', '100', '138'],
+                              ['UNI 19XL/120', '5', '19', '7', '26,6', '120', '168'],
+                              ['UNI 23XL/140', '6', '23', '8,4', '32,2', '140', '196'],
+                              ['UNI 27XL/150', '7', '27', '9,8', '37,8', '150', '210']
+]
                 },
                 {
                     title: 'Tehničke specifikacije',
@@ -233,21 +200,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     ]
                 },
                 {
-                    title: 'Tehničke specifikacije',
-                    headers: [
-                        'Model', 'Priključak (V/Hz/faze)', 'Brzina mešalice',
-                        'Snaga (kW)', 'Kondenzacija', 'Masa (kg)',
-                        'Visina (mm)', 'Širina (mm)', 'Dubina (mm)'
-                    ],
-                    rows: [
-                        ['DIGI 6/35', '400/50/3', '2', '4,1', 'Voda', '225', '1340', '520', '860'],
-                        ['DIGI 9/55', '400/50/3', '2', '7', 'Voda', '260', '1340', '520', '860'],
-                        ['DIGI 12/75', '400/50/3', '2', '8,5', 'Voda', '290', '1340', '520', '860'],
-                        ['DIGI 16/100', '400/50/3', '2', '10,5', 'Voda', '315', '1420', '610', '955'],
-                        ['DIGI 19XL/120', '400/50/3', 'Kontinuirano', '14,5', 'Voda', '370', '1420', '610', '955'],
-                        ['DIGI 23XL/140', '400/50/3', 'Kontinuirano', '16,3', 'Voda', '450', '1420', '610', '1055'],
-                        ['DIGI 27XL/150', '400/50/3', 'Kontinuirano', '20', 'Voda', '520', '1420', '610', '1155']
-                    ]
+                   
+    title: 'Tehničke specifikacije',
+    headers: [
+        'Model',
+        'Priključak (V/Hz/faze)',
+        'Brzina mešalice',
+        'Snaga (kW)',
+        'Kondenzacija',
+        'Masa (kg)',
+        'Visina (mm)',
+        'Širina (mm)',
+        'Dubina (mm)',
+        'Inverter – serijski',
+        'Inverter – opcijski'
+    ],
+    rows: [
+        ['DIGI 6/35', '400/50/3', '2', '4,1', 'Voda', '225', '1340', '520', '860', '—', '•'],
+        ['DIGI 9/55', '400/50/3', '2', '7', 'Voda', '260', '1340', '520', '860', '—', '•'],
+        ['DIGI 12/75', '400/50/3', '2', '8,5', 'Voda', '290', '1340', '520', '860', '—', '•'],
+        ['DIGI 16/100', '400/50/3', '2', '10,5', 'Voda', '315', '1420', '610', '955', '—', '•'],
+        ['DIGI 19XL/120', '400/50/3', 'Kontinuirano', '14,5', 'Voda', '370', '1420', '610', '955', '•', '—'],
+        ['DIGI 23XL/140', '400/50/3', 'Kontinuirano', '16,3', 'Voda', '450', '1420', '610', '1055', '•', '—'],
+        ['DIGI 27XL/150', '400/50/3', 'Kontinuirano', '20', 'Voda', '520', '1420', '610', '1155', '•', '—']
+    ]
+
                 }
             ],
             note: 'Kapaciteti proizvodnje mogu varirati u zavisnosti od smeše i temperature.'
@@ -302,85 +279,35 @@ document.addEventListener('DOMContentLoaded', () => {
                     ]
                 },
                 {
-                    title: 'Tehničke specifikacije',
-                    headers: [
-                        'Model', 'Priključak (V/Hz/faze)', 'Brzina mešalice',
-                        'Snaga (kW)', 'Kondenzacija', 'Masa (kg)',
-                        'Visina (mm)', 'Širina (mm)', 'Dubina (mm)'
-                    ],
-                    rows: [
-                        ['SMART MASTER 9/55', '400/50/3', 'Kontinuirano', '8', 'Voda', '265', '1415', '520', '860'],
-                        ['SMART MASTER 12/75', '400/50/3', 'Kontinuirano', '8,5', 'Voda', '295', '1415', '520', '860'],
-                        ['SMART MASTER 16/100', '400/50/3', 'Kontinuirano', '10,5', 'Voda', '340', '1500', '520', '860'],
-                        ['SMART MASTER 19XL/120', '400/50/3', 'Kontinuirano', '14,5', 'Voda', '375', '1500', '610', '955'],
-                        ['SMART MASTER 23XL/140', '400/50/3', 'Kontinuirano', '16,5', 'Voda', '455', '1500', '610', '955'],
-                        ['SMART MASTER 27XL/150', '400/50/3', 'Kontinuirano', '20,5', 'Voda', '530', '1500', '610', '1055']
-                    ]
-                }
+                    
+    title: 'Tehničke specifikacije',
+    headers: [
+        'Model',
+        'Priključak (V/Hz/faze)',
+        'Brzina mešalice',
+        'Snaga (kW)',
+        'Kondenzacija',
+        'Masa (kg)',
+        'Visina (mm)',
+        'Širina (mm)',
+        'Dubina (mm)',
+        'Inverter – serijski'
+    ],
+    rows: [
+        ['SMART MASTER 9/55', '400/50/3', 'Kontinuirano', '8', 'Voda', '265', '1415', '520', '860', '•'],
+        ['SMART MASTER 12/75', '400/50/3', 'Kontinuirano', '8,5', 'Voda', '295', '1415', '520', '860', '•'],
+        ['SMART MASTER 16/100', '400/50/3', 'Kontinuirano', '10,5', 'Voda', '340', '1500', '520', '860', '•'],
+        ['SMART MASTER 19XL/120', '400/50/3', 'Kontinuirano', '14,5', 'Voda', '375', '1500', '610', '955', '•'],
+        ['SMART MASTER 23XL/140', '400/50/3', 'Kontinuirano', '16,5', 'Voda', '455', '1500', '610', '955', '•'],
+        ['SMART MASTER 27XL/150', '400/50/3', 'Kontinuirano', '20,5', 'Voda', '530', '1500', '610', '1055', '•']
+    ]
+}
+                
             ],
             note: 'Programi i proizvodni kapaciteti zavise od vrste smeše i odabranih podešavanja.'
         },
 
-        'valtek-ts-lcd': {
-            title: 'VALTEK TS LCD',
-            image: 'img/DSC_5781x.jpg',
-            description:
-                'Profesionalna mašina za proizvodnju sladoleda koja omogućava podešavanje teksture i čvrstoće proizvoda, uz stabilan kvalitet tokom izbacivanja.',
-            features: [
-                {
-                    title: 'Ujednačen kvalitet',
-                    text: 'Sladoled zadržava kompaktnu, homogenu strukturu i kvalitet tokom celog procesa izbacivanja.'
-                },
-                {
-                    title: 'Prilagodljiva tekstura',
-                    text: 'Omogućava izbor teksture i čvrstoće u skladu sa vrstom sladoleda koji se proizvodi.'
-                },
-                {
-                    title: 'Automatsko prilagođavanje',
-                    text: 'Proces proizvodnje prilagođava se količini smeše, za manje i veće količine.'
-                },
-                {
-                    title: 'Praktičan rad',
-                    text: 'Omogućava zaustavljanje i ponovno pokretanje procesa kada je to potrebno.'
-                }
-            ],
-            tables: [
-                {
-                    title: 'Proizvodni kapaciteti',
-                    headers: [
-                        'Model', 'Min. smeša (kg)', 'Maks. sladoled (kg)',
-                        'Min. smeša (l)', 'Maks. sladoled (l)',
-                        'Kapacitet (kg/h)', 'Kapacitet (l/h)'
-                    ],
-                    rows: [
-                        ['TS LCD 9/55', '1,5', '9,5', '2,1', '13,2', '55', '75'],
-                        ['TS LCD 12/75', '2', '12', '2,8', '16,8', '75', '102'],
-                        ['TS LCD 16/100', '3', '15', '4,2', '23,8', '100', '138'],
-                        ['TS LCD 19XL/120', '4', '19', '5,6', '26,6', '120', '150'],
-                        ['TS LCD 23XL/140', '4', '23', '5,6', '32,2', '140', '180'],
-                        ['TS LCD 27XL/150', '5', '27', '7', '37,8', '150', '215']
-                    ]
-                },
-                {
-                    title: 'Tehničke specifikacije',
-                    headers: [
-                        'Model', 'Priključak (V/Hz/faze)', 'Brzina mešalice',
-                        'Snaga (kW)', 'Kondenzacija', 'Masa (kg)',
-                        'Visina (mm)', 'Širina (mm)', 'Dubina (mm)'
-                    ],
-                    rows: [
-                        ['TS LCD 9/55', '400/50/3', 'Kontinuirano', '8', 'Voda', '260', '1380', '520', '860'],
-                        ['TS LCD 12/75', '400/50/3', 'Kontinuirano', '8,5', 'Voda', '290', '1380', '520', '860'],
-                        ['TS LCD 16/100', '400/50/3', 'Kontinuirano', '10,5', 'Voda', '335', '1470', '520', '860'],
-                        ['TS LCD 19XL/120', '400/50/3', 'Kontinuirano', '14,5', 'Voda', '370', '1470', '610', '955'],
-                        ['TS LCD 23XL/140', '400/50/3', 'Kontinuirano', '16,5', 'Voda', '450', '1470', '610', '955'],
-                        ['TS LCD 27XL/150', '400/50/3', 'Kontinuirano', '20,5', 'Voda', '525', '1470', '610', '1055']
-                    ]
-                }
-            ],
-            note: 'Kapaciteti proizvodnje mogu varirati u zavisnosti od smeše i temperature.'
-        },
-
+        
         'valtek-past': {
             title: 'VALTEK PAST – Elektronski pasterizator',
             image: 'img/PAST 130_37.JPG',
@@ -412,82 +339,41 @@ document.addEventListener('DOMContentLoaded', () => {
                     text: 'Posuda i uređaj projektovani su tako da olakšaju čišćenje nakon rada.'
                 }
             ],
-            tables: [
-                {
-                    title: 'Kapaciteti modela',
-                    headers: ['Model', 'Kapacitet posude (l)', 'Kapacitet po ciklusu (kg)'],
-                    rows: [
-                        ['PAST 60', '67', 'Maks. 60'],
-                        ['PAST 130', '139', 'Maks. 130']
-                    ]
-                },
-                {
-                    title: 'Tehničke specifikacije',
-                    headers: [
-                        'Model', 'Priključak (V/Hz/faze)', 'Brzina mešalice',
-                        'Snaga (kW)', 'Kondenzacija', 'Masa (kg)',
-                        'Visina (mm)', 'Širina (mm)', 'Dubina (mm)'
-                    ],
-                    rows: [
-                        ['PAST 60', '400/50/3', '2', '7', 'Voda', '180', '1030', '350', '950/1100'],
-                        ['PAST 130', '400/50/3', '2', '12,5', 'Voda', '215', '1030', '520', '950/1100']
-                    ]
-                }
-            ],
-            note: 'Kapaciteti proizvodnje mogu varirati u zavisnosti od smeše i temperature.'
+           tables: [
+    {
+        title: 'Kapaciteti modela',
+        headers: [
+            'Model',
+            'Kapacitet posude (l)',
+            'Kapacitet po ciklusu (kg)'
+        ],
+        rows: [
+            ['PAST 60', '67', '20–60'],
+            ['PAST 130', '139', '30–130']
+        ]
+    },
+    {
+        title: 'Tehničke specifikacije',
+        headers: [
+            'Model',
+            'Priključak (V/Hz/faze)',
+            'Brzina mešalice',
+            'Snaga (kW)',
+            'Kondenzacija',
+            'Masa (kg)',
+            'Visina (mm)',
+            'Širina (mm)',
+            'Dubina (mm)'
+        ],
+        rows: [
+            ['PAST 60', '400/50/3', '2', '7', 'Voda', '180', '1030', '350', '950/1100'],
+            ['PAST 130', '400/50/3', '2', '12,5', 'Voda', '215', '1030', '520', '950/1100']
+        ]
+    }
+],
+note: 'Kapaciteti proizvodnje mogu varirati u zavisnosti od smeše i temperature.' 
         },
-
-        'valtek-pastosmart': {
-            title: 'VALTEK PASTOSMART – Automatski pasterizator',
-            image: 'img/PAST 60_37.jpg',
-            description:
-                'Višenamenski, računarski upravljani pasterizator za pripremu različitih smeša za sladoled, jogurta i zagrevanje čokolade.',
-            features: [
-                {
-                    title: 'Automatizovana kontrola',
-                    text: 'Omogućava podešavanje procesa zagrevanja i hlađenja, kao i temperature održavanja od 2 do 97 °C.'
-                },
-                {
-                    title: 'Prilagodljivo mešanje',
-                    text: 'Brzina mešanja može se podešavati, uz mogućnost pokretanja i zaustavljanja procesa.'
-                },
-                {
-                    title: 'HACCP evidencija',
-                    text: 'Beleži kontrolne tačke i omogućava prenos podataka na tablet, uz evidenciju prilagođenu korisniku.'
-                },
-                {
-                    title: 'Daljinsko servisiranje',
-                    text: 'Internet povezivanje omogućava daljinsku dijagnostiku grešaka na mašini.'
-                },
-                {
-                    title: 'Efikasnost i dugotrajnost',
-                    text: 'Niska potrošnja energije i vode, dugi radni ciklusi i dug tehnički vek mehaničkih delova.'
-                }
-            ],
-            tables: [
-                {
-                    title: 'Kapaciteti modela',
-                    headers: ['Model', 'Kapacitet posude (l)', 'Kapacitet po ciklusu (kg)'],
-                    rows: [
-                        ['PASTOSMART 60', '67', 'Maks. 60'],
-                        ['PASTOSMART 130', '139', 'Maks. 130']
-                    ]
-                },
-                {
-                    title: 'Tehničke specifikacije',
-                    headers: [
-                        'Model', 'Priključak (V/Hz/faze)', 'Brzina mešalice',
-                        'Snaga (kW)', 'Kondenzacija', 'Masa (kg)',
-                        'Visina (mm)', 'Širina (mm)', 'Dubina (mm)'
-                    ],
-                    rows: [
-                        ['PASTOSMART 60', '400/50/3', 'Kontinuirano', '9,0', 'Voda', '185', '1030', '350', '950/1100'],
-                        ['PASTOSMART 130', '400/50/3', 'Kontinuirano', '12,5', 'Voda', '220', '1030', '520', '950/1100']
-                    ]
-                }
-            ],
-            note: 'Kapaciteti proizvodnje mogu varirati u zavisnosti od smeše i temperature.'
-        },
+       
 
         'valtek-duo': {
             title: 'VALTEK DUO – Kombinovana mašina 2 u 1',

@@ -2816,5 +2816,416 @@ body {
     }
 }
 
+/* ================================
+   SERVIS STRANICA – VALTEK ROZE
+================================ */
 
+.service-page {
+    --valtek-pink: #E83E8C;
+    --service-brown: #3d211a;
+    --service-cream: #f5f5dc;
+    background: var(--service-cream);
+    color: var(--service-brown);
+}
 
+/* HERO SEKCIJA */
+
+.service-page .service-hero {
+    position: relative;
+    padding: 110px 8%;
+    background: var(--service-cream);
+    overflow: hidden;
+}
+
+.service-page .service-hero h1 {
+    max-width: 850px;
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    color: var(--service-brown);
+}
+
+.service-page .service-hero h1 span,
+.service-page .service-hero p span {
+    color: var(--valtek-pink);
+}
+
+.service-page .service-hero p {
+    max-width: 620px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #66534b;
+}
+
+/* ISTAKNUTE REČI */
+
+.service-page .pink-text,
+.service-page .highlight {
+    color: var(--valtek-pink);
+}
+
+/* SEKCIJA BRENDOVA */
+
+.service-page .service-brands {
+    padding: 85px 8%;
+    background: #fffaf3;
+}
+
+.service-page .service-brands h2,
+.service-page .service-details h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    color: var(--service-brown);
+    margin-bottom: 20px;
+}
+
+.service-page .service-brands h2 span,
+.service-page .service-details h2 span {
+    color: var(--valtek-pink);
+}
+
+.service-page .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 40px;
+}
+
+.service-page .service-card {
+    padding: 35px;
+    background: #fff;
+    border: 1px solid rgba(61, 33, 26, 0.10);
+    border-radius: 4px;
+    transition: transform .3s ease, border-color .3s ease,
+                box-shadow .3s ease;
+}
+
+.service-page .service-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--valtek-pink);
+    box-shadow: 0 15px 35px rgba(61, 33, 26, .08);
+}
+
+.service-page .service-card h3 {
+    color: var(--service-brown);
+    font-size: 22px;
+    margin-bottom: 13px;
+}
+
+.service-page .service-card p {
+    color: #66534b;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.service-page .service-card::before {
+    content: "";
+    display: block;
+    width: 38px;
+    height: 3px;
+    margin-bottom: 22px;
+    background: var(--valtek-pink);
+}
+
+/* DETALJI SERVISA */
+
+.service-page .service-details {
+    padding: 95px 8%;
+    background: var(--service-brown);
+    color: #f4eee4;
+}
+
+.service-page .service-details h2 {
+    color: #f4eee4;
+}
+
+.service-page .service-details p {
+    color: #e5d8c5;
+    line-height: 1.8;
+}
+
+.service-page .maintenance-list li {
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,.13);
+    color: #f4eee4;
+}
+
+.service-page .maintenance-list li::marker {
+    color: var(--valtek-pink);
+}
+
+/* POZIV NA KONTAKT */
+
+.service-page .service-cta {
+    margin: 80px auto;
+    padding: 65px 8%;
+    background: #fffaf3;
+    text-align: center;
+}
+
+.service-page .service-cta h2 {
+    font-size: clamp(30px, 4vw, 46px);
+    color: var(--service-brown);
+}
+
+.service-page .service-cta h2 span {
+    color: var(--valtek-pink);
+}
+
+.service-page .service-cta a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: var(--valtek-pink);
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    transition: .3s ease;
+}
+
+.service-page .service-cta a:hover {
+    background: var(--service-brown);
+    transform: translateY(-3px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .service-page .service-hero {
+        padding: 75px 6%;
+    }
+
+    .service-page .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-page .service-brands,
+    .service-page .service-details {
+        padding: 65px 6%;
+    }
+
+    .service-page .service-card {
+        padding: 27px;
+    }
+
+    .service-page .service-cta {
+        margin: 45px 5%;
+        padding: 45px 7%;
+    }
+}
+/* =================================
+   ISPRAVKA BOJA – SERVIS STRANICA
+================================= */
+
+/* Uklanjanje plave boje sa linkova */
+.service-page a,
+.service-page a:visited,
+.service-page a:active {
+    color: var(--service-brown);
+    text-decoration: none;
+}
+
+.service-page a:hover {
+    color: var(--valtek-pink);
+}
+
+/* Bela servis kartica – tamna slova */
+.service-page .service-card,
+.service-page .service-card h3,
+.service-page .service-card p,
+.service-page .service-card a,
+.service-page .service-card a:visited {
+    color: var(--service-brown);
+}
+
+/* Naslovi i tekst na belim karticama */
+.service-page .service-card h3 {
+    color: var(--service-brown);
+}
+
+.service-page .service-card p {
+    color: #66534b;
+}
+
+/* Linkovi unutar kartica */
+.service-page .service-card a:hover {
+    color: var(--valtek-pink);
+}
+
+/* Dugme za kontakt zadržava bel tekst */
+.service-page .service-cta a,
+.service-page .service-cta a:visited,
+.service-page .service-cta a:hover {
+    color: #fff !important;
+}
+
+/* Tekst u tamnoj sekciji */
+.service-page .service-details a,
+.service-page .service-details a:visited {
+    color: var(--valtek-pink);
+}
+
+/* =====================================
+   VALTEK ROZE – DETALJI NA SVIM STRANICAMA
+===================================== */
+
+:root {
+    --valtek-pink: #E83E8C;
+}
+
+/* Istaknute reči u naslovima */
+h1 span,
+h2 span,
+h3 span,
+.pink-text,
+.highlight {
+    color: var(--valtek-pink);
+}
+
+/* Roze detalj ispod naslova */
+.section-title::after,
+.section-heading::after {
+    background-color: var(--valtek-pink);
+}
+
+/* Aktivna stavka navigacije */
+.main-nav a.active,
+.nav-bar a.active {
+    color: var(--valtek-pink);
+}
+
+/* Hover na linkovima */
+.main-nav a:hover,
+.nav-bar a:hover {
+    color: var(--valtek-pink);
+}
+
+/* Roze detalj na karticama */
+.product-card:hover,
+.service-card:hover {
+    border-color: var(--valtek-pink);
+}
+
+/* Roze detalji na dugmićima pri prelasku mišem */
+button:hover,
+.btn:hover,
+.button:hover {
+    border-color: var(--valtek-pink);
+}
+
+/* Roze akcenti na malim naslovima i oznakama */
+.eyebrow,
+.section-label,
+.subtitle-accent {
+    color: var(--valtek-pink);
+}
+
+/* Selektovani tekst */
+::selection {
+    background: var(--valtek-pink);
+    color: #ffffff;
+}
+
+/* =====================================
+   KONTAKT STRANICA – VALTEK ROZE DETALJI
+===================================== */
+
+.contact-page {
+    --valtek-pink: #E83E8C;
+}
+
+/* Istaknute reči u naslovima */
+.contact-page h1 span,
+.contact-page h2 span,
+.contact-page h3 span {
+    color: var(--valtek-pink);
+}
+
+/* Roze detalji ispod naslova */
+.contact-page .contact-hero h1::after,
+.contact-page .section-title::after {
+    background: var(--valtek-pink);
+}
+
+/* Kontakt kartice */
+.contact-page .contact-card {
+    border-top: 3px solid var(--valtek-pink);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.contact-page .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(232, 62, 140, .13);
+}
+
+/* Ikonice */
+.contact-page .contact-card i,
+.contact-page .contact-card .icon {
+    color: var(--valtek-pink);
+}
+
+/* Nazivi kontakt podataka */
+.contact-page .contact-card h3 {
+    color: var(--valtek-pink);
+}
+
+/* Telefonski broj, email i adresa */
+.contact-page .contact-card a,
+.contact-page .contact-card a:visited {
+    color: #3d211a;
+    transition: color .25s ease;
+}
+
+.contact-page .contact-card a:hover {
+    color: var(--valtek-pink);
+}
+
+/* Dugmad */
+.contact-page .contact-btn,
+.contact-page .btn-contact {
+    background: var(--valtek-pink);
+    border: 1px solid var(--valtek-pink);
+    color: #fff !important;
+    transition: all .3s ease;
+}
+
+.contact-page .contact-btn:hover,
+.contact-page .btn-contact:hover {
+    background: #3d211a;
+    border-color: #3d211a;
+    color: #fff !important;
+}
+
+/* Roze detalji na formi */
+.contact-page input:focus,
+.contact-page textarea:focus,
+.contact-page select:focus {
+    border-color: var(--valtek-pink);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(232, 62, 140, .12);
+}
+
+/* Roze linije i dekoracije */
+.contact-page .contact-line,
+.contact-page .decoration-line {
+    background: var(--valtek-pink);
+}
+
+/* Roze naglasak u tekstu */
+.contact-page strong,
+.contact-page .pink-text,
+.contact-page .highlight {
+    color: var(--valtek-pink);
+}
+/* VALTEK – roze tekst na početnoj strani */
+.home-page .valtek-section,
+.home-page .valtek-section h1,
+.home-page .valtek-section h2,
+.home-page .valtek-section h3,
+.home-page .valtek-section p,
+.home-page .valtek-section span,
+.home-page .valtek-section strong,
+.home-page .valtek-section a {
+    color: #E83E8C;
+}
